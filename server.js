@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -97,6 +98,7 @@ app.post('/', async (req, res) => {
 //GET USER DETAILS
 app.get('/api/user/:id', async (req, res) => {
   const userId = req.params.id;
+  res.sendFile(path.join(__dirname, 'public', ''));
   try {
     const user = await User.findById(userId); 
     if(!user) {
