@@ -4,125 +4,185 @@
 using namespace std;
 
 struct malaltia {
-    string s1 = "res";
-    int p1 = 0;
-    string s2 = "res";
-    int p2 = 0;
-    string s3 = "res";
-    int p3 = 0;
-    string s4 = "res";
-    int p4 = 0;
-    string s5 = "res";
-    int p5 = 0;
-    string s6 = "res";
-    int p6 = 0;
-    string s7 = "res";    
-    int p7 = 0;
+    double pm = 0;
     int pt =0;
+    string diagnostic;
 };
 
-
-
 int main () {
-    malaltia insuficiencia;
 
-    insuficiencia.s1 = "fatiga";
-    insuficiencia.p1 = 1;
-    insuficiencia.s2 = "bategs";
-    insuficiencia.p2 = 2;
-    insuficiencia.s3 = "inflamacio";
-    insuficiencia.p3 = 2;
-    insuficiencia.s4 = "augment_de_pes";
-    insuficiencia.p4 = 3;
+    malaltia insuficiencia;
+    insuficiencia.pt = 8;
+
 
     malaltia trombolisme;
-
-    trombolisme.s1 = "mal_de_pit";
-    trombolisme.p1 = 1;
-    trombolisme.s2 = "tosir_sang";
-    trombolisme.p2 = 2;
-    trombolisme.s3 = "respiracio_accelerada";
-    trombolisme.p3 = 1;
-    trombolisme.s4 = "febre";
-    trombolisme.p4 = 1;
-    trombolisme.s5 = "convulsions";
-    trombolisme.p5 = 2;
+    trombolisme.pt = 7;
 
     malaltia toxics;
-
-    toxics.s1 = "mal_de_cap";
-    toxics.p1 = 1;
-    toxics.s2 = "nausees";
-    toxics.p2 = 1;
-    toxics.s3 = "somnolencia";
-    toxics.p3 = 3;
-    toxics.s4 = "tos";
-    toxics.p4 = 1;
-    toxics.s5 = "mal_de_traquea";
-    toxics.p5 = 2;
-    toxics.s6 = "mal_als_pulmons";
-    toxics.p6 = 3;
-    toxics.s7 = "confusio";
-    toxics.p7 = 1;
+    toxics.pt = 11;
 
     malaltia refluxe;
 // falta de ferro com a prova també
-    refluxe.s1 = "mucosa_irritada";
-    refluxe.p1 = 3;
-    refluxe.s2 = "acidesa";
-    refluxe.p2 = 1;
-    refluxe.s3 = "sagnat_digestiu";
-    refluxe.p3 = 2;
-    refluxe.s4 = "vòmit_persistent";
-    refluxe.p4 = 2;
-    refluxe.s4 = "perdua_de_pes";
-    refluxe.p4 = 1;
+    refluxe.pt = 9;
 
     malaltia abdomen;
-// fer algo amb tosir cagar i pixar sang
-    abdomen.s1 = "taquicardia";
-    abdomen.p1 = 1;
-    abdomen.s2 = "ictericia";
-    abdomen.p2 = 2;
-    abdomen.s3 = "tosir_sang";
-    abdomen.p3 = 2;
-    abdomen.s4 = "sang_orina";
-    abdomen.p4 = 3;
-    abdomen.s5 = "sagnat_digestiu";
-    abdomen.p5 = 2;
+    abdomen.pt = 10;
 
     malaltia pneumotorax;
-    // dolor toracic + falta d'aire = combo wombo
-    pneumotorax.s1 = "dolor_toracic";
-    pneumotorax.p1 = 2;
-    pneumotorax.s2 = "falta_aire";
-    pneumotorax.p2 = 2;
-    pneumotorax.s3 = "tos_seca";
-    pneumotorax.p3 = 2;
-    pneumotorax.s4 = "xiuleig_al_respirar";
-    pneumotorax.p4 = 1;
-
+    pneumotorax.pt = 7;
 
     malaltia contusio;
-    // va lligada amb el pneumotorax, pensa q coño fer
-    contusio.s1 = "nausees";
-    contusio.p1 = 1;
-    contusio.s2 = "falta_aire";
-    contusio.p2 = 2;
-    contusio.s4 = "dolor_toracic";
-    contusio.p4 = 2;
+    contusio.pt = 5;
 
     malaltia exacerbacio;
+    exacerbacio.pt =  7;
 
-    exacerbacio.s1 = "falta_aire";
-    exacerbacio.p1 =  2;
-    exacerbacio.s2 = "coloritzacio_blavosa";
-    exacerbacio.p2 =  3;
-    exacerbacio.s3 = "tos";
-    exacerbacio.p3 =  1;
-    exacerbacio.s4 = "febre";
-    exacerbacio.p4 =  1;
+    
+    bool fatiga = 0;
+    bool bategs = 0;
+    bool inflamacio = 0;
+    bool augment_de_pes = 0;
+    bool mal_pit = 0;
+    bool tosir_sang = 0;
+    bool respiracio_accelerada = 0;
+    bool febre = 0;
+    bool convulsions = 0;
+    bool mal_de_cap = 0;
+    bool nausees = 0;
+    bool somnolencia = 0;
+    bool tos = 0;
+    bool mal_de_traquea = 0;
+    bool mal_als_pulmons = 0;
+    bool confusio = 0;
+    bool mucosa_irritada = 0;
+    bool acidesa = 0;
+    bool sagnat_digestiu = 0;
+    bool vomit_persistent = 0;
+    bool perdua_de_pes = 0;
+    bool taquicardia = 0;
+    bool ictericia = 0;
+    bool sang_orina = 0;
+    bool dolor_toracic = 0;
+    bool falta_aire = 0;
+    bool tos_seca = 0;
+    bool xiuleig_al_respirar = 0;
+    bool coloritzacio_blavosa  = 0;
 
+    string malaltia;
 
+    if( fatiga ){
+        insuficiencia.pm += 1;
+    }
+    if( bategs ){
+        insuficiencia.pm += 2;
+    }
+    if( inflamacio ){
+        insuficiencia.pm += 2;
+    }
+    if( augment_de_pes ){
+        insuficiencia.pm += 3;
+    }
+    if( mal_pit ){
+        trombolisme.pm += 1;
+    }
+    if( tosir_sang ){
+        trombolisme.pm += 2;
+        abdomen.pm += 2;
+    }
+    if( respiracio_accelerada ){
+        trombolisme.pm += 1;
+    }
+    if( febre ){
+        trombolisme.pm += 1;
+        exacerbacio.pm += 1;
+    }
+    if( convulsions ){
+        trombolisme.pm += 2;
+    }
+    if( mal_de_cap ){
+        toxics.pm += 1;
+    }
+    if( nausees ){
+        toxics.pm += 1;
+        contusio.pm += 1;
+    }
+    if( somnolencia ){
+        toxics.pm += 3;
+    }
+    if( tos ){
+        toxics.pm += 1;
+        exacerbacio.pm += 1;
+    }
+    if( mal_de_traquea ){
+        toxics.pm += 2;
+    }
+    if( mal_als_pulmons ){
+        toxics.pm += 2;
+    }
+    if( confusio ){
+        toxics.pm += 1;
+    }
+    if( mucosa_irritada ){
+        refluxe.pm += 3;
+    }
+    if( acidesa ){
+        refluxe.pm += 1;
+    }
+    if( sagnat_digestiu ){
+        refluxe.pm += 2;
+        abdomen.pm += 2;
+        if(tosir_sang)abdomen.pm ++;
+    }
+    if( vomit_persistent ){
+        refluxe.pm += 2;
+    }
+    if( perdua_de_pes ){
+        refluxe.pm += 1;
+    }
+    if( taquicardia ){
+        abdomen.pm += 1;
+    }
+    if( ictericia ){
+        abdomen.pm += 2;
+    }
+    if( sang_orina ){
+        abdomen.pm += 3;
+        if(tosir_sang and sagnat_digestiu and abdomen.pm < abdomen.pt) abdomen.pm ++; 
+        else if (tosir_sang and not sagnat_digestiu) abdomen.pm ++;
+        else if (not tosir_sang and sagnat_digestiu) abdomen.pm++;    
+    }
+    if( dolor_toracic ){
+        pneumotorax.pm += 2;
+        contusio.pm += 2;
+    }
+    if( falta_aire ){
+        pneumotorax.pm += 2;
+        contusio.pm += 2;
+        exacerbacio.pm += 2;
+        if(dolor_toracic and (not tos_seca and not xiuleig_al_respirar)){
+            pneumotorax.pm += 2;  
+        }
+        else if(dolor_toracic and (not tos_seca or not xiuleig_al_respirar)){
+            pneumotorax.pm ++;
+        }
+    }
+    if( tos_seca ){
+        pneumotorax.pm += 2;
+    }
+    if( xiuleig_al_respirar ){
+        pneumotorax.pm += 1;
+    }
+    if( coloritzacio_blavosa ){
+        exacerbacio.pm += 3;
+    }
+
+    insuficiencia.pm /= insuficiencia.pt;
+    trombolisme.pm /= trombolisme.pt;
+    toxics.pm /= toxics.pt;
+    refluxe.pm /= refluxe.pt;
+    abdomen.pm /= abdomen.pt;
+    pneumotorax.pm /= pneumotorax.pt;
+    contusio.pm /= contusio.pt;
+    exacerbacio.pm /= exacerbacio.pt;
 
 }
