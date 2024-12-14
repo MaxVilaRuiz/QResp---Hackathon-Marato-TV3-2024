@@ -64,6 +64,10 @@ app.get('/', (req, res) => {
     res.send('Hello world!');
 });
 
+app.get('/api/register', (req, res) => {
+  res.send('REGISTER!!!');
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
