@@ -23,19 +23,32 @@
         <main>
             <ul class="info">               
                 <h2 class="info_title">Benvingut al<br>Portal del Pacient</h2>
-                <p>Accedeix a tota la teva informació com a pacient i guia als professionals a tractarte correctament en funció del teu historial.</p>
+                <p>Accedeix a tota la teva informació com a pacient i guia als professionals a tractar-te correctament en funció del teu historial.</p>
             </ul>
 
             <div class="separador"></div>
 
-            <ul class="login" action="">
+            <ul class="login">
                 <h2>Log In</h2>
 
-                <p>E-mail:</p>
-                <input type="text">
+                <form class="form-container">
+                    <div style="margin-bottom: .75rem;">
+                      <p class="form_text">E-mail</p>
+                      <input type="email" id="email" placeholder="usuari@gmail.com" required />
+                    </div>
 
-                <p>Contrassenya:</p>
-                <input type="text" name="" id="">
+                    <div style="margin-bottom: .75rem;">
+                      <p class="form_text">Contrassenya</p>
+                      <input type="password" id="password" required />
+                    </div>
+
+                    <button type="submit">Entrar</button>
+
+                    <ul class="register">
+                        <p class="register_text">No ets usuari?</p>
+                        <a class="register_text" style="margin-top: .85rem;" href="">Registrar-me</a>
+                    </ul>
+                  </form>
             </ul>
         </main>
     </form>
