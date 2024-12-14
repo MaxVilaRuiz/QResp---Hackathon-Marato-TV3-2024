@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
   
 app.use(express.json());
-  
+
 const verifyToken = (req, res, next) => {
   const token = req.headers['authorization'];
   if(!token)
@@ -32,7 +32,7 @@ const verifyToken = (req, res, next) => {
   jwt.verify(token, 'secret', (err, decoded) => {
   if(err)
   {
-    return res.status(401).json({ error: err.message });
+    return res.status(401).json({ error: err.mes });
   }
     req.user = decoded;
     next();
