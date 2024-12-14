@@ -55,7 +55,7 @@ a:hover {
 
 
 /* Buttons */
-input[type="email"], input[type="password"] {
+input[type="name"], input[type="email"], input[type="password"] {
     background-color: #f9fafb;
     border: 1px solid #d1d5db;
     color: #1f2937;
@@ -66,7 +66,7 @@ input[type="email"], input[type="password"] {
     outline: none;
     box-sizing: border-box;
 }
-input[type="email"]:focus, input[type="password"]:focus {
+input[type="name"]:focus, input[type="email"]:focus, input[type="password"]:focus {
     border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
 }
