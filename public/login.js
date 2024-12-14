@@ -18,9 +18,9 @@ function login() {
     .then(response => response.json())
     .then(data => {
         if(data.success) {
-            alert(data.message);
+            console.log('success');
         } else {
-            alert(data.message);
+            console.log('failed');
         }
     })
     .catch(error => console.error('Error: ', error));
