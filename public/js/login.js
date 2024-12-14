@@ -1,10 +1,10 @@
 
 function login() {
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
     // window.location.href = "/Frontend/html/userpage.html";
 
-    console.log("hello world");
+    console.log(email);
 
     const credentials = {
         username: email,
@@ -20,14 +20,14 @@ function login() {
     })
     .then(response => response.json())
     .then(data => {
-        if(data.success) {
-            alert(data.message);
-        } else {
+        if(data.success)
+        {
+            window.location.href = data.redirectUrl;
+        }
+        else
+        {
             alert(data.message);
         }
-    })
+    })  
     .catch(error => console.error('Error: ', error));
-
-    console.log(email.value);
-    console.log(password.value);
 }

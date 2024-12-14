@@ -33,16 +33,17 @@ const verifyToken = (req, res, next) => {
   const token = req.headers['authorization'];
   if(!token)
   {
+    console.log(token);
     return res.status(401).json({ error: 'Unauthorized' });
   }
   
   jwt.verify(token, 'secret', (err, decoded) => {
-  if(err)
-  {
-    return res.status(401).json({ error: err.mes });
-  }
-    req.user = decoded;
-    next();
+    if(err)
+    {
+      return res.status(401).json({ error: err.mes });
+    }
+      req.user = decoded;
+      next();
   });
 };
 
@@ -75,26 +76,29 @@ app.post('/', async (req, res) => {
     const user = await User.findOne({ username: req.body.username });
     if(!user)
     {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      return res.status(401).json({ success: false, message: 'Estas fora!' });
     }
 
     const passwordMatch = await bcrypt.compare(req.body.password, user.password);
     if(!passwordMatch)
     {
-      return res.status(401).json({ error: 'Password does not match!' });
+      return res.status(401).json({ success: false, message: 'Contrassenya mal!' });
     }
-
-    const token = jwt.sign({ username: user.username }, 'secret');
-    res.status(200).json({ token });
+    
+    const id = user._id;
+    //const token = jwt.sign({ username: user.username }, 'secret');
+    return res.status(200).json({ success: true, redirectUrl: `/api/user/${id}`});
+    //res.status(200).json({ token });
   } catch (error){
-    res.status(500).json({ error: 'Internal server error.' });
+    res.status(500).json({ success: false, message: 'MAL!' });
   }
 });
 
 //GET USER DETAILS
-app.get('/api/user', verifyToken, async (req, res) => {
+app.get('/api/user/:id', async (req, res) => {
+  const userId = req.params.id;
   try {
-    const user = await User.findOne( { username: req.user.username });
+    const user = await User.findById(userId); 
     if(!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -102,14 +106,6 @@ app.get('/api/user', verifyToken, async (req, res) => {
   } catch {
     res.status(500).json({ error: 'Internal server error' });
   }
-});
-
-app.get('/', (req, res) => {
-    res.send('Hello world!');
-});
-
-app.get('/api/register', (req, res) => {
-  res.send('REGISTER!!!');
 });
 
 app.listen(PORT, () => {
