@@ -1,9 +1,12 @@
 :root{
     --main-color: #48CFCB;
+    --text-color: #229799;
     --background-color: #F5F5F5;
-    --font-family: "Nunito", sans-serif;
+    --font-family-primary: "Nunito", sans-serif;
+    --font-family-secondary: "Rubik", sans-serif;
 }
 
+/* Estructures */
 body{
     padding-left: 17.5rem;
     padding-right: 17.5rem;
@@ -12,14 +15,44 @@ body{
 form{
     background-color: white;
     border: solid 1px black;
-    padding-bottom: 50rem;
+    padding-bottom: 30rem;
 }
 header{
-    height: 5rem;
+    height: 6rem;
     background-color: var(--main-color);
     display: flex;
 }
+main{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 2rem;
+}
+
+/* Textos */
 h1{
-    margin-left: 1rem;
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    align-items: center;
+}
+h2{
+    font-family: var(--font-family-secondary);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+p{
+    font-family: var(--font-family-primary);
+}
+
+/* Body */
+.info{
+    width: 25rem;
+}
+.info_title{
+    margin-bottom: 1.5rem;
+}
+.login{
+    width: 25rem;
 }
