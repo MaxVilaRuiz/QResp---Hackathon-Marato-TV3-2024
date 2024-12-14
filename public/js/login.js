@@ -1,7 +1,10 @@
+
 function login() {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     // window.location.href = "/Frontend/html/userpage.html";
+
+    console.log("hello world");
 
     const credentials = {
         username: email,
@@ -18,9 +21,9 @@ function login() {
     .then(response => response.json())
     .then(data => {
         if(data.success) {
-            console.log('success');
+            alert(data.message);
         } else {
-            console.log('failed');
+            alert(data.message);
         }
     })
     .catch(error => console.error('Error: ', error));

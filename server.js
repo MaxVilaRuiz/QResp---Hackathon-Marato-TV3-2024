@@ -21,6 +21,13 @@ const User = mongoose.model('User', userSchema);
   
 app.use(express.json());
 app.use(express.static('public'));
+app.use((req, res, next) => {
+  if(req.path.endsWith('.js'))
+  {
+    res.setHeader('Content-Type', 'application/javascript');
+  }
+  next();
+});
 
 const verifyToken = (req, res, next) => {
   const token = req.headers['authorization'];
