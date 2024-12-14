@@ -24,12 +24,3 @@
 .form_text {
     margin-bottom: .2rem;
 }
-.register {
-    display: flex;
-    justify-content: center;
-    margin-right: 2.5rem;
-    gap: .75rem;
-}
-.register_text {
-    margin-top: .75rem;
-}

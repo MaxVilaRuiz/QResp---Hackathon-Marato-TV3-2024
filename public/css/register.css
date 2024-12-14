@@ -1,7 +1,7 @@
 .main_register {
     display: grid;
     margin-top: 3rem;
-    padding-bottom: 10rem;
+    padding-bottom: 7rem;
 }
 
 .title_register {
@@ -16,4 +16,9 @@
 
 .btn_register {
     height: 2.5rem;
+}
+
+.login {
+    display: flex;
+    gap: 1rem;
 }

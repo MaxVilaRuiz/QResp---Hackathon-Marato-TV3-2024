@@ -29,6 +29,13 @@ main {
     margin-left: -1rem;
     gap: 2rem;
 }
+.redirection {
+    display: flex;
+    justify-content: center;
+    margin-right: 2.5rem;
+    gap: .75rem;
+}
+
 
 /* Labels */
 label {
@@ -38,12 +45,14 @@ label {
     font-weight: 500;
 }
 a {
+    font-family: var(--font-family-primary);
     text-decoration: none;
     color: #3b82f6;
 }
 a:hover {
     color: var(--button-color);
 }
+
 
 /* Buttons */
 input[type="email"], input[type="password"] {
@@ -98,4 +107,7 @@ h2 {
 }
 p {
     font-family: var(--font-family-primary);
+}
+.text_redirection {
+    margin-top: .75rem;
 }
