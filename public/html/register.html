@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/public/css/register.css">
+    <link rel="stylesheet" href="/public/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -17,8 +18,36 @@
 <body>
     <form>
         <header>
-            <h1>Portal del Pacient</h1>
+            <h1>Formulari de Registre</h1>
         </header>
+
+        <main class="main_register">
+            <h2 class="title_register">Registrat a l'aplicatiu</h2>
+
+            <form> 
+                <div>
+                    <p class="form_text">Nom i Cognoms</p>
+                    <input type="email" id="name" required />
+                </div>
+
+                <div>
+                  <p class="form_text">E-mail</p>
+                  <input type="email" id="email" placeholder="usuari@gmail.com" required />
+                </div>
+
+                <div>
+                  <p class="form_text">Contrassenya</p>
+                  <input type="password" id="password" required />
+                </div>
+
+                <div>
+                  <p class="form_text">Repeteix la contrassenya</p>
+                  <input type="password" id="repeat-password" required />
+                </div>
+
+                <button type="submit" class="btn_register">Registrar-se</button>
+              </form>
+        </main>
     </form>
     
 </body>

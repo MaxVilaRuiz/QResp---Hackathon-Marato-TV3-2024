@@ -1,0 +1,19 @@
+.main_register {
+    display: grid;
+    margin-top: 3rem;
+    padding-bottom: 10rem;
+}
+
+.title_register {
+    text-align: center;
+    width: 30rem;
+}
+
+.form_text {
+    margin-bottom: .4rem;
+    margin-top: 0rem;
+}
+
+.btn_register {
+    height: 2.5rem;
+}
