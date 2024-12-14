@@ -23,6 +23,17 @@ function register() {
             body: JSON.stringify(credentials)
         })
         .then(response => response.json())
+        .then(data => {
+            if(data.success)
+            {
+                alert(data.message);
+                window.location.href = data.redirectUrl;
+            }
+            else
+            {
+                alert(data.message);
+            }
+        })
     }
 
     console.log(name);

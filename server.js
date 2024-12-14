@@ -30,31 +30,14 @@ app.use((req, res, next) => {
   next();
 });
 
-const verifyToken = (req, res, next) => {
-  const token = req.headers['authorization'];
-  if(!token)
-  {
-    console.log(token);
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-  
-  jwt.verify(token, 'secret', (err, decoded) => {
-    if(err)
-    {
-      return res.status(401).json({ error: err.mes });
-    }
-      req.user = decoded;
-      next();
-  });
-};
-
 // REGISTER
 app.post('/api/register', async (req, res) => {
   try {
     const existingUser = await User.findOne({ username: req.body.username });
     if(existingUser)
     {
-      return res.status(400).json({ error: 'Username already exists.' });
+      console.log('MAL');
+      return res.status(400).json({ success: false, message: 'Username already exists!'});
     }
 
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -65,7 +48,9 @@ app.post('/api/register', async (req, res) => {
     });
 
     await newUser.save();
-    res.status(201).json({ message: 'User registered successfully' });
+    const id = newUser._id;
+    res.status(201).json({ success: true, message: 'User registered successfully!', 
+      redirectUrl: `/api/user/${id}`});
   } catch (error){
     res.status(500).json({ error: toString(error) });
   }
