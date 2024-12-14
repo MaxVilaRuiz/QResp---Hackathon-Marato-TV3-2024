@@ -1,0 +1,25 @@
+:root{
+    --main-color: #48CFCB;
+    --background-color: #F5F5F5;
+    --font-family: "Nunito", sans-serif;
+}
+
+body{
+    padding-left: 17.5rem;
+    padding-right: 17.5rem;
+    background-color: var(--background-color);
+}
+form{
+    background-color: white;
+    border: solid 1px black;
+    padding-bottom: 50rem;
+}
+header{
+    height: 5rem;
+    background-color: var(--main-color);
+    display: flex;
+}
+h1{
+    margin-left: 1rem;
+    font-family: var(--font-family);
+}
