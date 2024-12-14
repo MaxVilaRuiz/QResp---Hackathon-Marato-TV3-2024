@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -21,6 +20,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
   
 app.use(express.json());
+app.use(express.static('public'));
 
 const verifyToken = (req, res, next) => {
   const token = req.headers['authorization'];
