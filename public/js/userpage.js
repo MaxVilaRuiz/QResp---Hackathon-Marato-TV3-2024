@@ -2,6 +2,12 @@ document.getElementById('btn1').addEventListener('click', function(event) {
     event.preventDefault();
     document.getElementById('btn1').style.display = 'none';
     document.getElementById('btn2').style.display = 'block';
+})
+
+document.getElementById('btn2').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('btn2').style.display = 'none';
+    document.getElementById('btn1').style.display = 'block';
 
     let fatiga = document.getElementById('fatiga').checked;
     let bategs = document.getElementById('bategs').checked;
@@ -125,6 +131,4 @@ document.getElementById('btn1').addEventListener('click', function(event) {
     if (temp_baixa) {
         simptomes.push("temp_baixa")
     }
-
-
 });
