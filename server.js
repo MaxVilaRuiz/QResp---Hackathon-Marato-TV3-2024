@@ -112,6 +112,12 @@ app.get('/api/user/:id', async (req, res) => {
       diseaseScores[id] = 0;
     });
 
+    const ts = false;
+    const sd = false;
+    const dt = false;
+    const toss = false;
+    const xr = false;
+
     symptoms.forEach(symptomId => {
       if(symptomId === 'fatiga')
       {
@@ -141,6 +147,7 @@ app.get('/api/user/:id', async (req, res) => {
       if(symptomId === 'tosir_sang')
       {
         diseaseScores['trombolisme'] += 2;
+        ts = true;
       }
 
       if(symptomId === 'respiracio_accelerada')
@@ -209,7 +216,9 @@ app.get('/api/user/:id', async (req, res) => {
       {
         diseaseScores["refluxe"] += 2;
         diseaseScores["abdomen"] += 2;
-        //falta if
+        sd = true;
+
+        if(ts) diseaseScores["abdomen"] += 1;
       }
 
       if(symptomId === 'vomit_persistent')
@@ -235,13 +244,25 @@ app.get('/api/user/:id', async (req, res) => {
       if(symptomId === 'sang_orina')
       {
         diseaseScores["abdomen"] += 3;
-        //falta ifs
+        if(ts && sd && diseaseScores['abdomen'] < Disease.findById('abdomen').pt)
+        {
+          diseaseScores["abdomen"] += 1;
+        }
+        else if(ts && !sd)
+        {
+          diseaseScores["abdomen"] += 1;
+        }
+        else if(!ts && sd)
+        {
+          diseaseScores["abdomen"] += 1;
+        }
       }
 
       if(symptomId === 'dolor_toracic')
       {
         diseaseScores["pneumotorax"] += 2;
         diseaseScores["contusio"] += 2;
+        dt = true;
       }
 
       if(symptomId === 'falta_aire')
@@ -250,16 +271,26 @@ app.get('/api/user/:id', async (req, res) => {
         diseaseScores["contusio"] += 2;
         diseaseScores["exacerbacio"] += 2;
         //falta ifs
+        if(dt && (!toss && !xr))
+        {
+          diseaseScores["pneumotorax"] += 2;
+        }
+        else if(dt && (!toss || !xr))
+        {
+          diseaseScores["pneumotorax"] += 1;
+        }
       }
 
       if(symptomId === 'tos_seca')
       {
         diseaseScores["pneumotorax"] += 2;
+        toss = true;
       }
 
       if(symptomId === 'xiuleig_al_respirar')
       {
         diseaseScores["pneumotorax"] += 1;
+        xr = true;
       }
 
       if(symptomId === 'coloritzacio_blavosa')
