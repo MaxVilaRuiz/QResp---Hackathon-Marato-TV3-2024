@@ -89,9 +89,6 @@ document.getElementById('btn2').addEventListener('click', function(event) {
     if (acidesa) {
         simptomes.push("acidesa")
     }
-    if (sagnat_digestiu) {
-        simptomes.push("sagnat_digestiu")
-    }
     if (vomit_persistent) {
         simptomes.push("vomit_persistent")
     }
@@ -106,12 +103,6 @@ document.getElementById('btn2').addEventListener('click', function(event) {
     }
     if (dolor_toracic) {
         simptomes.push("dolor_toracic")
-    }
-    if (sang_orina) {
-        simptomes.push("sang_orina")
-    }
-    if (falta_aire) {
-        simptomes.push("falta_aire")
     }
     if (tos_seca) {
         simptomes.push("tos_seca")
@@ -130,5 +121,14 @@ document.getElementById('btn2').addEventListener('click', function(event) {
     }
     if (temp_baixa) {
         simptomes.push("temp_baixa")
+    }
+    if (sagnat_digestiu) {
+        simptomes.push("sagnat_digestiu")
+    }
+    if (sang_orina) {
+        simptomes.push("sang_orina")
+    }
+    if (falta_aire) {
+        simptomes.push("falta_aire")
     }
 });

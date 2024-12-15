@@ -23,7 +23,9 @@ const userSchema = new mongoose.Schema({
 
 const Disease = mongoose.model('Malalties', new mongoose.Schema({
   _id: String,
-  name: String
+  name: String,
+  diagnostic: String,
+  recommendation: String
 }));
 
 const Symptom = mongoose.model('Simptomes', new mongoose.Schema({
@@ -94,15 +96,10 @@ app.post('/', async (req, res) => {
 
 //GET USER DETAILS
 app.get('/api/user/:id', async (req, res) => {
-  //res.sendFile(path.join(__dirname, 'public', ''));
   const userId = req.params.id;
+  res.sendFile(path.join(__dirname, 'public', 'html', 'userpage.html'));
   const symptoms = [ 'fatiga', 'bategs' ];
   try {
-    const user = await User.findById(userId); 
-    if(!user) {
-      return res.status(404).json({ error: `L'usuari ${userId} no existeix.` });
-    }
-    res.status(200).json({ username: user.username });
 
     const diseases = await Disease.find();
     let diseaseScores = {};
@@ -270,7 +267,7 @@ app.get('/api/user/:id', async (req, res) => {
         diseaseScores["pneumotorax"] += 2;
         diseaseScores["contusio"] += 2;
         diseaseScores["exacerbacio"] += 2;
-        //falta ifs
+
         if(dt && (!toss && !xr))
         {
           diseaseScores["pneumotorax"] += 2;
@@ -297,6 +294,24 @@ app.get('/api/user/:id', async (req, res) => {
       {
         diseaseScores["exacerbacio"] += 3;
       }
+
+      diseaseScores["pneumotorax"] /= Disease.findById('pneumotorax').pt;
+      diseaseScores["insuficiencia"] /= Disease.findById('insuficiencia').pt;
+      diseaseScores["trombolisme"] /= Disease.findById('trombolisme').pt;
+      diseaseScores["toxics"] /= Disease.findById('toxics').pt;
+      diseaseScores["refluxe"] /= Disease.findById('refluxe').pt;
+      diseaseScores["abdomen"] /= Disease.findById('abdomen').pt;
+      diseaseScores["contusio"] /= Disease.findById('contusio').pt;
+      diseaseScores["exerbacio"] /= Disease.findById('exerbacio').pt;
+      diseaseScores["pneumonia"] /= Disease.findById('pneumonia').pt;
+
+      const results = [];
+
+      diseases.forEach(disease => {
+        const result = [ disease.name, diseaseScores[disease.id], disease.diagnostic, disease.recommendation ];
+        result.push(result);
+      });
+
     })
 
   } catch {
