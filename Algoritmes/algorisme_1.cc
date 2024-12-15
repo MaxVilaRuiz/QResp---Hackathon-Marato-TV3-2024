@@ -5,7 +5,7 @@ using namespace std;
 
 struct malaltia {
     double pm = 0;
-    int pt =0;
+    int pt = 0;
     string diagnostic;
     string solucio;
 };
@@ -35,7 +35,7 @@ int main () {
 
     malaltia abdomen;
     abdomen.pt = 10;
-    abdomen.diagnostic = "Hemograma+, probes de funció hepàtica i renal";
+    abdomen.diagnostic = "Hemograma+, probes de funció hepà tica i renal";
     abdomen.solucio = "líquids intravenosos +, intervenció quirúrgica (consultar compatibilitat amb altres MPIs)";
     
     malaltia pneumotorax;

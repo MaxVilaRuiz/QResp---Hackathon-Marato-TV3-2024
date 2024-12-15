@@ -26,6 +26,7 @@ function login() {
         }
         else
         {
+            console.log('error login');
             alert(data.message);
         }
     })  

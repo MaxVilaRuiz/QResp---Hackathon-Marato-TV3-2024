@@ -1,0 +1,137 @@
+[
+    {
+        "_id": "fatiga",
+        "name": "Fatiga"
+    },
+
+    {
+        "_id": "bategs",
+        "name": "Bategs"
+    },
+
+    {
+        "_id": "inflamacio",
+        "name": "Inflamacio"
+    },
+
+    {
+        "_id": "augment_de_pes",
+        "name": "Augment de pes"
+    },
+
+    {
+        "_id": "mal_pit",
+        "name": "Mal al pit"
+    },
+
+    {
+        "_id": "tosir_sang",
+        "name": "Tossir sang"
+    },
+
+    {
+        "_id": "respiracio_accelerada",
+        "name": "Respiracio accelerada"
+    },
+
+    {
+        "_id": "febre",
+        "name": "Febre"
+    },
+
+    {
+        "_id": "convulsions",
+        "name": "Convulsions"
+    },
+
+    {
+        "_id": "somnolencia",
+        "name": "Somnolencia"
+    },
+
+    {
+        "_id": "tos",
+        "name": "Tos"
+    },
+
+    {
+        "_id": "mal_de_traquea",
+        "name": "Mal de traquea"
+    },
+
+    {
+        "_id": "mal_als_pulmons",
+        "name": "Mal als pulmons"
+    },
+
+    {
+        "_id": "confusio",
+        "name": "Confusio"
+    },
+
+    {
+        "_id": "mucosa_irritada",
+        "name": "Mucosa irritada"
+    },
+
+    {
+        "_id": "acidesa",
+        "name": "Acidesa"
+    },
+
+    {
+        "_id": "sagnat_digestiu",
+        "name": "Sagnat digestiu"
+    },
+
+    {
+        "_id": "vomit_persistent",
+        "name": "Vomit persistent"
+    },
+
+    {
+        "_id": "perdua_de_pes",
+        "name": "Perdua de pes"
+    },
+
+    {
+        "_id": "taquicardia",
+        "name": "Taquicardia"
+    },
+
+    {
+        "_id": "ictericia",
+        "name": "Ictericia"
+    },
+
+    {
+        "_id": "dolor_toracic",
+        "name": "Dolor toracic"
+    },
+
+    {
+        "_id": "sang_orina",
+        "name": "Sang a l'orina"
+    },
+
+    {
+        "_id": "falta_aire",
+        "name": "Falta d'aire"
+    },
+
+    {
+        "_id": "tos_seca",
+        "name": "Tos seca"
+    },
+
+    {
+        "_id": "xiuleig_al_respirar",
+        "name": "Xiuleig al respirar"
+    },
+
+    {
+        "_id": "coloritzacio_blavosa",
+        "name": "Coloritzacio blavosa llavis i ungles"
+    }
+
+]

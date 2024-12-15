@@ -1,0 +1,109 @@
+[
+    {
+        "_id": "insuficiencia",
+        "name": "Insuficiencia",
+        "symptoms": [
+          "fatiga",
+          "bategs",
+          "inflamacio",
+          "augment_de_pes"
+        ],
+        "diagnostic": "Angiografia coronaria +, anàlisi de sang, ecocardiograma",
+        "recomendation": "Diurètics (consultar altres MPI per si no són compatibles)"
+    },
+    
+    {
+        "_id": "trombolisme",
+        "name": "Trombolisme",
+        "symptoms": [
+          "mal_pit",
+          "tosir_sang",
+          "respiracio_accelerada",
+          "febre",
+          "convulsions"
+        ],
+        "diagnostic": "Angiotomografia de tòrax + i/o arteriografia",
+        "recomendation": "Heparina/acenocumarol (consultar MPIs i compatibilitat), tractament fibronolític (si és molt severa)"
+    },
+
+    {
+        "_id": "toxics",
+        "name": "Toxics",
+        "symptoms": [
+          "mal_pit",
+          "nausees",
+          "somnolencia",
+          "tos",
+          "mal_als_pulmons",
+          "mal_de_traquea",
+          "confusio"
+        ],
+        "diagnostic": "Probes d'imatges de pulmons +, anàlisi de sang, Endoscòpia (consultar compatibilitat amb altres MPIs)",
+        "recomendation": "Teràpia d'oxigen"
+    },
+
+    {
+        "_id": "refluxe",
+        "name": "Refluxe",
+        "symptoms": [
+          "mucosa_irritada",
+          "acidesa",
+          "sagnat_digestiu",
+          "vomit_persistent"
+        ],
+        "diagnostic": "PHmetria amb impedància +, nanometria esofàgica d'alta resolució, comprovar nivalls de ferro en sang",
+        "recomendation": "No fumar / beure, perdre pes (en cas de sobrepes), Funduplicatura total/parcial (consultar compatibilitat amb altres MPIs)"
+    },
+
+    {
+        "_id": "abdomen",
+        "name": "Abdomen",
+        "symptoms": [
+          "tosir_sang",
+          "sagnat_digestiu",
+          "taquicardia",
+          "ictericia",
+          "sang_orina"
+        ],
+        "diagnostic": "Hemograma+, probes de funció hepà tica i renal",
+        "recomendation": "líquids intravenosos +, intervenció quirúrgica (consultar compatibilitat amb altres MPIs)"
+    },
+
+    {
+        "_id": "pneumotorax",
+        "name": "Pneumotorax",
+        "symptoms": [
+          "dolor_toracic",
+          "falta_aire",
+          "tos_seca",
+          "xiuxiueig_al_respirar"
+        ],
+        "diagnostic": "radiografia de tòrax +, TAC (en cas que s'hagi tingut abans (consultar compatibilitat amb altrs MPIs))",
+        "recomendation": "drenar l'aire +, connectar a l'aspiració durant unes hores"
+    },
+
+    {
+        "_id": "contusio",
+        "name": "Contusio",
+        "symptoms": [
+          "dolor_toracic",
+          "falta_aire",
+          "nausees"
+        ],
+        "diagnostic": "radiografia de tòrax+, mesurar oxigen en sang (pulsioxímetre)",
+        "recomendation": "Oxigenoteràpia amb ventilació mecànica +, Analgèsics (consultar compatibilitat amb altres MPIs)"
+    },
+
+    {
+        "_id": "exacerbacio",
+        "name": "Exacerbacio",
+        "symptoms": [
+          "febre",
+          "tos",
+          "falta_aire",
+          "coloritzacio_blavosa"
+        ],
+        "diagnostic": "Examen de sang, broncoscòpia +, ressonància magnètica del tòrax",
+        "recomendation": "En cas de tenir nivell d'oxigen en sang baix fer oxigenoteràpia, altrament fer rehabilitació pulmonar"
+    }
+]
