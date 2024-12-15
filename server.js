@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
+const xml2js = require('xml2js');
 
 const app = express();
 const PORT = 3000;
@@ -20,13 +22,14 @@ const userSchema = new mongoose.Schema({
   random: String
 });
 
-const diseaseSchema = new mongoose.Schema({
+const Disease = mongoose.model('Disease', new mongoose.Schema({
   name: String,
-  pt: Number,
-  pm: Number,
-  diagnostic: String,
-  recommendation: String
-})
+  symptoms: [String]
+}));
+
+const Symptom = mongoose.model('Symptom', new mongoose.Schema({
+  name: String
+}));
 
 const User = mongoose.model('User', userSchema);
   
@@ -100,11 +103,51 @@ app.get('/api/user/:id', async (req, res) => {
       return res.status(404).json({ error: `L'usuari ${userId} no existeix.` });
     }
     res.status(200).json({ username: user.username });
+
+    const diseases = await Disease.find();
+    let diseaseScores = {};
+
+    diseases.forEach(disease => {
+      diseaseScores[disease.name] = 0;
+      console.log(diseaseScores[disease.name]);
+    })
+
   } catch {
     res.status(500).json({ error: 'Error de servidor.' });
   }
+
+  // Selection of diseases
+
 });
+
+async function fetchMedicalArticles()
+{
+  const query = 'respiratory diseases';
+  const apiUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=${query}&retmax=5&retmode=json`;
+
+  try {
+    const response = await axios.get(apiUrl);
+    const articleIds = response.data.esearchresult.idlist;
+
+    const summaryUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${articleIds.join(',')}&retmode=json`;
+    const articleSummary = await axios.get(summaryUrl);
+
+    const articles = articleSummary.data.result;
+    console.log(articles);
+    return articles;
+  } catch (error) {
+    console.error('Error fetching articles: ' + error);
+    return null;
+  }
+}
+
+async function AnalizeArticle()
+{
+
+}
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    //const articles = fetchMedicalArticles();
+    //console.log(articles);
 });
