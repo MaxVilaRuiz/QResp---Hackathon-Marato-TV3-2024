@@ -12,7 +12,6 @@ const PORT = 3000;
 mongoose.connect('mongodb://127.0.0.1:27017/auth')
   .then(() => console.log('Conectado a MongoDB'))
   .catch((error) => console.error('Error al conectar a MongoDB', error));
-
 // --USER SIGNUP LOGIN--
 
 const userSchema = new mongoose.Schema({
@@ -22,12 +21,12 @@ const userSchema = new mongoose.Schema({
   random: String
 });
 
-const Disease = mongoose.model('Disease', new mongoose.Schema({
-  name: String,
-  symptoms: [String]
+const Disease = mongoose.model('Malalties', new mongoose.Schema({
+  _id: String,
+  name: String
 }));
 
-const Symptom = mongoose.model('Symptom', new mongoose.Schema({
+const Symptom = mongoose.model('Simptomes', new mongoose.Schema({
   name: String
 }));
 
@@ -95,8 +94,9 @@ app.post('/', async (req, res) => {
 
 //GET USER DETAILS
 app.get('/api/user/:id', async (req, res) => {
+  //res.sendFile(path.join(__dirname, 'public', ''));
   const userId = req.params.id;
-  res.sendFile(path.join(__dirname, 'public', ''));
+  const symptoms = [ 'fatiga', 'bategs' ];
   try {
     const user = await User.findById(userId); 
     if(!user) {
@@ -108,16 +108,169 @@ app.get('/api/user/:id', async (req, res) => {
     let diseaseScores = {};
 
     diseases.forEach(disease => {
-      diseaseScores[disease.name] = 0;
-      console.log(diseaseScores[disease.name]);
+      const id = disease._id;
+      diseaseScores[id] = 0;
+    });
+
+    symptoms.forEach(symptomId => {
+      if(symptomId === 'fatiga')
+      {
+        diseaseScores['insuficiencia'] += 1;
+      }
+
+      if(symptomId === 'bategs')
+      {
+        diseaseScores['insuficiencia'] += 2;
+      }
+
+      if(symptomId === 'inflamacio')
+      {
+        diseaseScores['insuficiencia'] += 2;
+      }
+
+      if(symptomId === 'augment_de_pes')
+      {
+        diseaseScores['insuficiencia'] += 3;
+      }
+
+      if(symptomId === 'mal_pit')
+      {
+        diseaseScores['trombolisme'] += 1;
+      }
+
+      if(symptomId === 'tosir_sang')
+      {
+        diseaseScores['trombolisme'] += 2;
+      }
+
+      if(symptomId === 'respiracio_accelerada')
+      {
+        diseaseScores['trombolisme'] += 1;
+      }
+
+      if(symptomId === 'febre')
+      {
+        diseaseScores['trombolisme'] += 1;
+      }
+
+      if(symptomId === 'convulsions')
+      {
+        diseaseScores['trombolisme'] += 2;
+      }
+
+      if(symptomId === 'mal_de_cap')
+      {
+        diseaseScores["toxics"] += 1;
+      }
+
+      if(symptomId === 'nausees')
+      {
+        diseaseScores["toxics"] += 1
+        diseaseScores["contusio"] += 1;
+      }
+
+      if(symptomId === 'somnolencia')
+      {
+        diseaseScores["toxics"] += 3;
+      }
+
+      if(symptomId === 'tos')
+      {
+        diseaseScores["toxics"] += 1;
+        diseaseScores["exacerbacio"] += 1;
+      }
+
+      if(symptomId === 'mal_de_traquea')
+      {
+        diseaseScores["toxics"] += 2;
+      }
+
+      if(symptomId === 'mal_als_pulmons')
+      {
+        diseaseScores["toxics"] += 2;
+      }
+
+      if(symptomId === 'confusio')
+      {
+        diseaseScores["toxics"] += 1;
+      }
+
+      if(symptomId === 'mucosa_irritada')
+      {
+        diseaseScores["refluxe"] += 3;
+      }
+
+      if(symptomId === 'acidesa')
+      {
+        diseaseScores["refluxe"] += 1;
+      }
+
+      if(symptomId === 'sagnat_digestiu')
+      {
+        diseaseScores["refluxe"] += 2;
+        diseaseScores["abdomen"] += 2;
+        //falta if
+      }
+
+      if(symptomId === 'vomit_persistent')
+      {
+        diseaseScores["refluxe"] += 2;
+      }
+
+      if(symptomId === 'perdua_de_pes')
+      {
+        diseaseScores["refluxe"] += 1;
+      }
+
+      if(symptomId === 'taquicardia')
+      {
+        diseaseScores["abdomen"] += 1;
+      }
+
+      if(symptomId === 'ictericia')
+      {
+        diseaseScores["abdomen"] += 2;
+      }
+
+      if(symptomId === 'sang_orina')
+      {
+        diseaseScores["abdomen"] += 3;
+        //falta ifs
+      }
+
+      if(symptomId === 'dolor_toracic')
+      {
+        diseaseScores["pneumotorax"] += 2;
+        diseaseScores["contusio"] += 2;
+      }
+
+      if(symptomId === 'falta_aire')
+      {
+        diseaseScores["pneumotorax"] += 2;
+        diseaseScores["contusio"] += 2;
+        diseaseScores["exacerbacio"] += 2;
+        //falta ifs
+      }
+
+      if(symptomId === 'tos_seca')
+      {
+        diseaseScores["pneumotorax"] += 2;
+      }
+
+      if(symptomId === 'xiuleig_al_respirar')
+      {
+        diseaseScores["pneumotorax"] += 1;
+      }
+
+      if(symptomId === 'coloritzacio_blavosa')
+      {
+        diseaseScores["exacerbacio"] += 3;
+      }
     })
 
   } catch {
     res.status(500).json({ error: 'Error de servidor.' });
   }
-
-  // Selection of diseases
-
 });
 
 async function fetchMedicalArticles()

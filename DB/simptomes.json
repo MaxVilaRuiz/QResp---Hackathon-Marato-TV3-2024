@@ -45,6 +45,16 @@
     },
 
     {
+        "_id": "mal_de_cap",
+        "name": "Mal de cap"
+    },
+
+    {
+        "_id": "nausees",
+        "name": "Nausees"
+    },
+
+    {
         "_id": "somnolencia",
         "name": "Somnolencia"
     },
@@ -132,6 +142,11 @@
     {
         "_id": "coloritzacio_blavosa",
         "name": "Coloritzacio blavosa llavis i ungles"
+    },
+
+    {
+        "_id": "temperatura_baixa",
+        "name": "Temperatura baixa"
     }
 
 ]
