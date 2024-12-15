@@ -1,0 +1,52 @@
+.main_userpage {
+    display: grid;
+}
+
+.form-container {
+    background: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container .category {
+    margin-bottom: 20px;
+}
+
+.form-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-container table th,
+.form-container table td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.form-container table th {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.form-container table td {
+    background-color: #fff;
+}
+
+.form-container label {
+    font-weight: normal;
+}
+
+.form-container input[type="radio"] {
+    margin: 0;
+}
