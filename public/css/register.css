@@ -22,3 +22,42 @@
     display: flex;
     gap: 1rem;
 }
+
+
+
+@media (max-width: 768px) {
+    /* Contenedor principal del registro */
+    .main_register {
+        display: flex; /* Cambia a un diseño flexible para móviles */
+        flex-direction: column; /* Apila los elementos verticalmente */
+        margin-top: 2rem; /* Reduce el margen superior */
+        padding-bottom: 3rem; /* Reduce el espacio inferior */
+    }
+
+    /* Título del registro */
+    .title_register {
+        width: 100%; /* Asegura que el título ocupe todo el ancho */
+        padding: 0 1rem; /* Agrega espacio interno para que no quede pegado */
+        text-align: center; /* Centra el texto */
+    }
+
+    /* Texto del formulario */
+    .form_text {
+        margin-bottom: 0.6rem; /* Aumenta el margen inferior para separación */
+        margin-top: 0.2rem; /* Agrega un ligero margen superior */
+    }
+
+    /* Botón de registro */
+    .btn_register {
+        height: 3rem; /* Ajusta la altura para facilitar el clic en móviles */
+        width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    }
+
+    /* Login */
+    .login {
+        display: flex;
+        flex-direction: column; /* Cambia el diseño a columna en móviles */
+        gap: 0.75rem; /* Ajusta el espacio entre los elementos */
+        align-items: center; /* Centra los elementos */
+    }
+}

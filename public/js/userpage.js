@@ -132,3 +132,10 @@ document.getElementById('btn2').addEventListener('click', function(event) {
         simptomes.push("temp_baixa")
     }
 });
+
+
+// Posar el diagnòstic i tractament corresponents de la base de dades.
+let diagnostic = document.getElementById('diagnostic');
+diagnostic.innerHTML = "";
+let tractament = document.getElementById('tractament');
+tractament.innerHTML = "";

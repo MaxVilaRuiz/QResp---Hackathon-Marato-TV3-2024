@@ -24,3 +24,54 @@
 .btn_userpg {
     margin-top: 1.5rem;
 }
+
+.title_usrpg {
+    margin-top: 3.5rem;
+}
+
+
+
+@media (max-width: 768px) {
+    /* Contenedor principal de la página de usuario */
+    .main_userpage {
+        display: flex; /* Cambia a un diseño flexible para móviles */
+        flex-direction: column; /* Apila los elementos verticalmente */
+        text-align: center; /* Centra el texto */
+        padding-bottom: 5rem; /* Reduce el espacio inferior */
+        gap: 1rem; /* Aumenta la separación entre elementos */
+    }
+
+    /* Tabla dentro del contenedor del formulario */
+    .form-container table {
+        width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
+        margin: 0 auto; /* Centra la tabla horizontalmente */
+        border-collapse: collapse; /* Mantiene la estructura de las celdas */
+    }
+
+    /* Celdas y cabecera de la tabla */
+    .form-container table th, 
+    .form-container table td {
+        font-family: var(--font-family-primary); /* Mantiene la fuente */
+        text-align: center; /* Centra el texto */
+        padding: 8px; /* Mantiene el espacio interno */
+        font-size: 0.875rem; /* Ajusta el tamaño de la fuente para móviles */
+    }
+
+    /* Estilo de la cabecera de la tabla */
+    .form-container table th {
+        background-color: var(--main-color); /* Mantiene el color principal */
+    }
+
+    /* Botón en la página de usuario */
+    .btn_userpg {
+        margin-top: 1.5rem; /* Mantiene el margen superior */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        height: 3rem; /* Incrementa la altura para facilitar el clic en móviles */
+    }
+
+    /* Título de la página de usuario */
+    .title_usrpg {
+        margin-top: 2rem; /* Reduce el margen superior */
+        font-size: 1.5rem; /* Ajusta el tamaño de fuente para móviles */
+    }
+}
