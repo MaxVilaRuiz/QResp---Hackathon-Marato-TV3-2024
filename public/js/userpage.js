@@ -122,18 +122,6 @@ document.getElementById('btn2').addEventListener('click', function(event) {
     if (temp_baixa) {
         simptomes.push("temp_baixa")
     }
-<<<<<<< HEAD
-    if (sagnat_digestiu) {
-        simptomes.push("sagnat_digestiu")
-    }
-    if (sang_orina) {
-        simptomes.push("sang_orina")
-    }
-    if (falta_aire) {
-        simptomes.push("falta_aire")
-    }
-});
-=======
 });
 
 
@@ -142,4 +130,3 @@ let diagnostic = document.getElementById('diagnostic');
 diagnostic.innerHTML = "";
 let tractament = document.getElementById('tractament');
 tractament.innerHTML = "";
->>>>>>> 15b63771161ae3f3c387d3f06f4345ba5032edec
