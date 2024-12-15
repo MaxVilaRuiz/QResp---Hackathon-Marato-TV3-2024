@@ -122,6 +122,7 @@ document.getElementById('btn2').addEventListener('click', function(event) {
     if (temp_baixa) {
         simptomes.push("temp_baixa")
     }
+<<<<<<< HEAD
     if (sagnat_digestiu) {
         simptomes.push("sagnat_digestiu")
     }
@@ -132,3 +133,13 @@ document.getElementById('btn2').addEventListener('click', function(event) {
         simptomes.push("falta_aire")
     }
 });
+=======
+});
+
+
+// Posar el diagnòstic i tractament corresponents de la base de dades.
+let diagnostic = document.getElementById('diagnostic');
+diagnostic.innerHTML = "";
+let tractament = document.getElementById('tractament');
+tractament.innerHTML = "";
+>>>>>>> 15b63771161ae3f3c387d3f06f4345ba5032edec

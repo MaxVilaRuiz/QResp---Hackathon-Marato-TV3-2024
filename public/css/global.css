@@ -111,3 +111,72 @@ p {
 .text_redirection {
     margin-top: .75rem;
 }
+
+
+
+@media (max-width: 768px) {
+    body {
+        padding-left: 1rem; /* Reduce el padding para dispositivos móviles */
+        padding-right: 1rem;
+    }
+
+    header {
+        height: 4rem; /* Reduce la altura del header */
+        flex-direction: column; /* Ajusta la disposición del contenido */
+        justify-content: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.75rem; /* Reduce el tamaño de la fuente */
+        margin-left: 0; /* Elimina el margen lateral */
+        text-align: center;
+    }
+
+    main {
+        margin-top: 1rem; /* Ajusta márgenes */
+        margin-left: 0;
+        gap: 1rem; /* Reduce el espacio entre elementos */
+        flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    }
+
+    .redirection {
+        flex-direction: column; /* Asegura que los botones se apilen */
+        margin-right: 0; /* Elimina el margen lateral */
+        gap: 1rem; /* Ajusta el espacio entre los elementos */
+        text-align: center;
+    }
+
+    form {
+        padding: 1rem; /* Agrega padding interno al formulario */
+        border: none; /* Elimina el borde para un diseño más limpio */
+    }
+
+    label {
+        font-size: 0.75rem; /* Reduce el tamaño del texto */
+    }
+
+    input[type="name"], input[type="email"], input[type="password"] {
+        font-size: 0.75rem; /* Reduce el tamaño del texto */
+        padding: 0.5rem; /* Reduce el padding interno */
+    }
+
+    button {
+        font-size: 0.75rem; /* Reduce el tamaño del texto */
+        padding: 0.5rem; /* Ajusta el padding interno */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Reduce el tamaño del texto */
+        text-align: center;
+    }
+
+    p {
+        font-size: 0.875rem; /* Ajusta el tamaño del texto */
+    }
+
+    .text_redirection {
+        margin-top: 0.5rem; /* Reduce el margen superior */
+        text-align: center;
+    }
+}

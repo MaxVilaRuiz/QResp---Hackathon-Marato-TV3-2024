@@ -24,3 +24,35 @@
 .form_text {
     margin-bottom: .2rem;
 }
+
+
+
+@media (max-width: 768px) {
+    /* Información */
+    .info {
+        width: 100%; /* Ajusta el ancho al 100% del viewport */
+        padding: 0.5rem; /* Agrega un poco de espacio interno */
+    }
+
+    .info_title {
+        margin-bottom: 1rem; /*Reduce el margen inferior*/
+    }
+
+    .separador {
+        margin-top: 1.5rem; /* Reduce el margen superior */
+         /* Reduce la altura del separador */
+        width: 1px; /* Mantén una línea delgada */
+        background-color: #dadada;
+    }
+
+    /* Inicio de sesión */
+    .login {
+        width: 100%; /* Ajusta el ancho al 100% */
+        padding: 1rem; /* Ajusta el espacio interno */
+        padding-bottom: 10rem; /* Reduce el espacio inferior para móviles */
+    }
+
+    .form_text {
+        margin-bottom: 0.5rem; /* Aumenta ligeramente el margen entre textos */
+    }
+}
