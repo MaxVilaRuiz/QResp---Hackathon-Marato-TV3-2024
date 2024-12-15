@@ -5,22 +5,26 @@ using namespace std;
 
 struct malaltia {
     double pm = 0;
-    int pt = 0;
+    int pt =0;
     string diagnostic;
     string solucio;
 };
 
 int main () {
 
+    malaltia pneumonia;
+    pneumonia.pt = 8;
+    pneumonia.diagnostic = "Radiografia del tòrax, probes per veure la presència d'altres gèrmens";
+
     malaltia insuficiencia;
     insuficiencia.pt = 8;
     insuficiencia.diagnostic = "Angiografia coronaria +, anàlisi de sang, ecocardiograma";
-    insuficiencia.solucio = "Diurètics (consultar altres MPI per si no són compatibles)";
+    insuficiencia.solucio = "Diurètics (consultar compatibilitat amb altres MPIs)";
 
     malaltia trombolisme;
-    trombolisme.pt = 7;
+    trombolisme.pt = 8;
     trombolisme.diagnostic = "Angiotomografia de tòrax + i/o arteriografia";
-    trombolisme.solucio = "Heparina/acenocumarol (consultar MPIs i compatibilitat), tractament fibronolític (si és molt severa)";
+    trombolisme.solucio = "Heparina/acenocumarol (consultar compatibilitat amb altres MPIs), tractament fibronolític (si és molt severa)";
     
     malaltia toxics;
     toxics.pt = 11;
@@ -28,24 +32,23 @@ int main () {
     toxics.solucio = "Teràpia d'oxigen";
 
     malaltia refluxe;
-// falta de ferro com a prova també
     refluxe.pt = 9;
     refluxe.diagnostic = "PHmetria amb impedància +, nanometria esofàgica d'alta resolució, comprovar nivalls de ferro en sang";
     refluxe.solucio = "No fumar / beure, perdre pes (en cas de sobrepes), Funduplicatura total/parcial (consultar compatibilitat amb altres MPIs)";
 
     malaltia abdomen;
     abdomen.pt = 10;
-    abdomen.diagnostic = "Hemograma+, probes de funció hepà tica i renal";
-    abdomen.solucio = "líquids intravenosos +, intervenció quirúrgica (consultar compatibilitat amb altres MPIs)";
+    abdomen.diagnostic = "Hemograma+, probes de funció hepàtica i renal";
+    abdomen.solucio = "Líquids intravenosos +, intervenció quirúrgica (consultar compatibilitat amb altres MPIs)";
     
     malaltia pneumotorax;
     pneumotorax.pt = 7;
-    pneumotorax.diagnostic = "radiografia de tòrax +, TAC (en cas que s'hagi tingut abans (consultar compatibilitat amb altrs MPIs))";
-    pneumotorax.solucio = "drenar l'aire +, connectar a l'aspiració durant unes hores";
+    pneumotorax.diagnostic = "Radiografia de tòrax +, TAC (en cas que s'hagi tingut abans (consultar compatibilitat amb altrs MPIs))";
+    pneumotorax.solucio = "Drenar l'aire +, connectar a l'aspiració durant unes hores";
 
     malaltia contusio;
     contusio.pt = 5;
-    contusio.diagnostic = "radiografia de tòrax+, mesurar oxigen en sang (pulsioxímetre)";
+    contusio.diagnostic = "Radiografia de tòrax+, mesurar oxigen en sang (pulsioxímetre)";
     contusio.solucio = "Oxigenoteràpia amb ventilació mecànica +, Analgèsics (consultar compatibilitat amb altres MPIs) ";
 
     malaltia exacerbacio;
@@ -83,9 +86,11 @@ int main () {
     bool tos_seca = 0;
     bool xiuleig_al_respirar = 1;
     bool coloritzacio_blavosa  = 0;
+    bool temperatura_baixa = 0;
 
     if( fatiga ){
         insuficiencia.pm += 1;
+        pneumonia.pm += 1;
     }
     if( bategs ){
         insuficiencia.pm += 2;
@@ -97,7 +102,8 @@ int main () {
         insuficiencia.pm += 3;
     }
     if( mal_pit ){
-        trombolisme.pm += 1;
+        trombolisme.pm += 2;
+        pneumonia.pm += 2;
     }
     if( tosir_sang ){
         trombolisme.pm += 2;
@@ -119,6 +125,7 @@ int main () {
     if( nausees ){
         toxics.pm += 1;
         contusio.pm += 1;
+        pneumonia.pm +=1;
     }
     if( somnolencia ){
         toxics.pm += 3;
@@ -126,6 +133,7 @@ int main () {
     if( tos ){
         toxics.pm += 1;
         exacerbacio.pm += 1;
+        pneumonia.pm += 1;
     }
     if( mal_de_traquea ){
         toxics.pm += 2;
@@ -189,6 +197,9 @@ int main () {
     if( coloritzacio_blavosa ){
         exacerbacio.pm += 3;
     }
+    if(temperatura_baixa){
+        pneumonia.pm += 3;
+    }
 
     insuficiencia.pm /= insuficiencia.pt;
     trombolisme.pm /= trombolisme.pt;
@@ -198,6 +209,7 @@ int main () {
     pneumotorax.pm /= pneumotorax.pt;
     contusio.pm /= contusio.pt;
     exacerbacio.pm /= exacerbacio.pt;
+    pneumonia.pm /= pneumonia.pt;
 
     struct sticbe{
         double p;
@@ -205,7 +217,7 @@ int main () {
         string morire;
         string ahoraque;
     };
-    vector <sticbe> probs (8);
+    vector <sticbe> probs (9);
 
     probs [0].p = insuficiencia.pm;
     probs [0].qpasa = "Insuficiencia Cardíaca";
@@ -239,6 +251,10 @@ int main () {
     probs [7].qpasa = "Exacerbació Aguda";
     probs [7].morire = exacerbacio.diagnostic;
     probs [7].ahoraque = exacerbacio.solucio;
+    probs [8].p = pneumonia.pm;
+    probs [8].qpasa = "Pneumonia";
+    probs [8].morire = pneumonia.diagnostic;
+    probs [8].ahoraque = pneumonia.solucio;
 
     bool acabacio = 1;
     while(acabacio){
@@ -252,7 +268,24 @@ int main () {
         else acabacio = 0;
     }
 
-    for(int i = 7; i>4; i--){
-        cout<<probs[i].qpasa<<" "<<probs[i].p<<endl<<"Proves a fer: "<<probs[i].morire<<endl<<"Tractament: "<<probs[i].ahoraque<<endl;
+    for(int i = 8; i>5; i--){
+        if(probs [i].qpasa == "Pneumonia"){
+            cout<<probs[i].qpasa<<" "<<probs[i].p<<endl<<"Proves a fer: "<<probs[i].morire<<endl<<"Tractament per pacients Immunosuprimits:"<<endl;
+            cout<<"Si PCR + : Oseltamivir: 75 mg cada 12 hores per via oral."<<endl;
+            cout<<"Si hi ha infecció bacteriana: Piperacilina/Tazobactam: 4 g/0,5 g cada 8 hores intravenós. ";
+            cout<<"Altrament: Cefalosporina 3ª generació + Levofloxacina: 500 mg cada 24 hores."<<endl;
+            cout<<"Si se sospita de CMV: Ganciclovir: 5 mg/kg cada 12 hores intravenós."<<endl;
+            cout<<"Si se sospita pneumonia per fongs: Sulfametoxazol/Trimetoprim: 800/160 mg cada 12 hores via oral, afegir àcid fòlic"<<endl<<endl;
+            cout<<"Tractament per pacients Immunocompetents: "<<endl;
+            cout<<"Si PCR + : Administrar HBPM (Heparina de Baix Peso Molecular): 0,5-0,9 mL segons el pes corporal."<<endl;
+            cout<<"Si Metilprednisolona: En casos específicos, administrar ½-1 mg/kg/día intravenoso.a infecció bacteriana: Cefalosporina 3ª generació + Levofloxacina: 500 mg cada 24 hores. "<<endl<<endl;
+
+        }
+        else
+        cout<<probs[i].qpasa<<" "<<probs[i].p<<endl<<"Proves a fer: "<<probs[i].morire<<endl<<"Tractament: "<<probs[i].ahoraque<<endl<<endl;
     }
+    cout<<"Aquest és un suport general en cas de ser necessàri (consultar compatibilitat amb altres MPIs):"<<endl<<"Oxigenoterapia: Ajustada segons saturació d'oxígen (mantenir SatO2 ≥ 92%)."<<endl;
+    cout<<"N-Acetilcisteína (antioxidant): 600 mg cada 8 hores via oral."<<endl<<"Morfina: 2,5-5 mg subcutània per aliviar el dolor en casos de disnea intensa."<<endl;
+    cout<<"Metilprednisolona: En casos específics, administrar ½-1 mg/kg/dia intravenós."<<endl<<"Vitamina D y calci: Suplementació en cas de mal alveolar."<<endl;
+    cout<<"Inhibidors de bomba de protons (IBP): Omeprazol 20 mg al dia."<<endl;
 }
